@@ -6,6 +6,7 @@ function render({ model, el }) {
     switch (msg["event_name"]) {
       case "compute_value":
         model.set("value", model.get("value") + 1);
+        model.set("value_computing", false);
         model.save_changes();
     }
   })
