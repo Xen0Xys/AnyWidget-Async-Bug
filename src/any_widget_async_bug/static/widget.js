@@ -7,6 +7,10 @@ function render({ model, el }) {
       case "compute_value":
         model.set("value", model.get("value") + 1);
         model.save_changes();
+        model.send({
+          event_type: "value_computed",
+          content: model.get("value"),
+        });
     }
   })
 }
